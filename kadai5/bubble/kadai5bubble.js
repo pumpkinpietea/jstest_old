@@ -1,10 +1,10 @@
 'use strict'
 
-function arrayCal(arr) {
-  const inclease = bubbleSort(arr)
+function arrayCal(arr,arrLength) {
+  const inclease = bubbleSort(arr,arrLength)
   const declease = []
   let sumNumber = 0
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < arrLength; i++) {
     declease.unshift(inclease[i])
     sumNumber += inclease[i]
   }
@@ -12,9 +12,9 @@ function arrayCal(arr) {
     '合計： ' +
     sumNumber +
     '\n平均: ' +
-    sumNumber / 6 +
+    sumNumber / arrLength +
     '\n最大値: ' +
-    inclease[5] +
+    inclease[arrLength-1] +
     '\n最小値: ' +
     inclease[0] +
     '\n小さい順: ' +
@@ -24,9 +24,9 @@ function arrayCal(arr) {
   return outputText
 }
 
-function bubbleSort(numbers) {
-  for (let i = 0; i < 5; i++) {
-    for (let j = 5; j > i; j--) {
+function bubbleSort(numbers,arrLength) {
+  for (let i = 0; i < arrLength-1; i++) {
+    for (let j = arrLength-1; j > i; j--) {
       if (numbers[j - 1] > numbers[j]) {
         const temp = numbers[j - 1]
         numbers[j - 1] = numbers[j]
@@ -37,5 +37,6 @@ function bubbleSort(numbers) {
   return numbers
 }
 
-const inputArray = [20, 31, 42, 13, 5, 38]
-console.log(arrayCal(inputArray))
+//const inputArray = [20, 31, 42, 13, 5, 38]
+const inputArray = [20]
+console.log(arrayCal(inputArray,inputArray.length))
