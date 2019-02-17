@@ -1,11 +1,30 @@
 'use strict'
 
-function sumNumber(n) {
-  if (n !== 0) {
-    return n + sumNumber(n - 1)
-  }
-  return 0
+function toUry(n) {
+  const outputJson = JSON.stringify(hash, changeFoo)
+  return outputJson
 }
 
-const inputNumber = parseInt(window.prompt('数字を入力してください。'))
-console.log(sumNumber(inputNumber))
+function changeFoo(key, value) {
+  if (key === 'text') {
+    return value.replace(/foo/g, 'uryyyy!!')
+  }
+  return value
+}
+
+const hash = {
+  main: {
+    first: { text: 'foobar' },
+    second: { text: 'fizzbuzz', child: { text: 'foobar' } },
+  },
+  sub: {
+    first: { text: 'fizzbuzz', child: { text: 'foobar' } },
+    second: {
+      third: { text: 'barfoo', child: { text: 'foobar' } },
+      forth: { child: { text: 'jit_foo_foo' } },
+    },
+  },
+  text: 'foofava',
+}
+
+console.log(toUry(hash))
