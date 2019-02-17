@@ -1,14 +1,14 @@
 'use strict'
 
-const inputtext = window.prompt('文字を入力してください。')
-const splitstring = /[,.\s]/
-const inputarray = inputtext.split(splitstring)
+const inputText = window.prompt('文字を入力してください。')
+const splitString = /[,.\s]/
+const inputArray = inputText.split(splitString)
 
-inputarray.sort()
+inputArray.sort()
 let counter = 1
 const outputObject = new Map()
 let oldValue = ''
-for (const newValue of inputarray) {
+for (const newValue of inputArray) {
   if (oldValue === newValue) {
     counter += 1
   } else {

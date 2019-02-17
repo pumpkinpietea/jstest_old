@@ -7,5 +7,5 @@ function sumNumber(n) {
   return 0
 }
 
-const inputnumber = parseInt(window.prompt('数字を入力してください。'))
-console.log(sumNumber(inputnumber))
+const inputNumber = parseInt(window.prompt('数字を入力してください。'))
+console.log(sumNumber(inputNumber))

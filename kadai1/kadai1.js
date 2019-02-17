@@ -1,7 +1,7 @@
 'use strict'
 
-const inputnumber = parseInt(window.prompt('数字を入力してください。'))
-for (let i = 1; i <= inputnumber; i++) {
+const inputNumber = parseInt(window.prompt('数字を入力してください。'))
+for (let i = 1; i <= inputNumber; i++) {
   if (i % 15 === 0) {
     console.log('FizzBuzz')
   } else if (i % 3 === 0) {
