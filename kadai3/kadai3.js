@@ -1,24 +1,34 @@
 'use strict'
 
-function janken() {
+const janken = () => {
   const computer = Math.floor(Math.random() * 3)
   const sentence = '「じゃんけん・・・」\n 0.グー 1.チョキ 2.パー'
-  const user = parseInt(window.prompt(sentence))
+  const userInput = parseInt(window.prompt(sentence))
   console.log(sentence)
-  console.log(user + '\n「ぽい！」\n＊コンピュータ：' + jankenText(computer) + '\n＊あなた　：' + jankenText(user))
-  if (computer === user) {
-    console.log('「あいこでしょ！」')
+  console.log(`${userInput}\n「ぽい！」\n＊コンピュータ： ${jankenText(computer)}\n＊あなた： ${jankenText(userInput)}`)
+  if (computer === userInput) {
+    console.log('「アイコでしょ！」')
     janken()
-  } else if ((computer === 0 && user === 2) || (computer === 1 && user === 0) || (computer === 2 && user === 1)) {
+  } else if (
+    // userInputが勝つ組み合わせ
+    (computer === 0 && userInput === 2) ||
+    (computer === 1 && userInput === 0) ||
+    (computer === 2 && userInput === 1)
+  ) {
     console.log('「あなたの勝ち！」')
-  } else if ((computer === 0 && user === 1) || (computer === 1 && user === 2) || (computer === 2 && user === 0)) {
-    console.log('コンピュータの勝ち！')
+  } else if (
+    // computerが勝つ組み合わせ
+    (computer === 0 && userInput === 1) ||
+    (computer === 1 && userInput === 2) ||
+    (computer === 2 && userInput === 0)
+  ) {
+    console.log('「コンピュータの勝ち！」')
   } else {
     console.log('error')
   }
 }
 
-function jankenText(n) {
+const jankenText = n => {
   let outputText = ''
   switch (n) {
     case 0:

@@ -1,8 +1,8 @@
 'use strict'
 
-function fizzbuzz(n) {
+const fizzbuzz = num => {
   const outputArray = []
-  for (let i = 1; i <= inputNumber; i++) {
+  for (let i = 1; i <= num; i++) {
     if (i % 15 === 0) {
       outputArray.push('FizzBuzz')
     } else if (i % 3 === 0) {
@@ -13,8 +13,8 @@ function fizzbuzz(n) {
       outputArray.push(i)
     }
   }
-  console.log(outputArray.join())
+  return outputArray
 }
 
-const inputNumber = parseInt(window.prompt('数字を入力してください。'))
-fizzbuzz(inputNumber)
+const example = parseInt(window.prompt('数字を入力してください。'))
+console.log(fizzbuzz(example).toString())

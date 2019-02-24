@@ -1,11 +1,11 @@
 'use strict'
 
-function toUry(n) {
+const toUry = inputText => {
   const outputJson = JSON.stringify(hash, changeFoo)
   return outputJson
 }
 
-function changeFoo(key, value) {
+const changeFoo = (key, value) => {
   if (key === 'text') {
     return value.replace(/foo/g, 'uryyyy!!')
   }

@@ -1,30 +1,23 @@
 'use strict'
 
-function arrayCal(arr, arrLength) {
-  const inclease = quickSort(arr, 0, arrLength - 1)
+const arrayCal = arr => {
+  const inclease = quickSort(arr, 0, arr.length - 1)
   const declease = []
   let sumNumber = 0
-  for (let i = 0; i < arrLength; i++) {
-    declease.unshift(inclease[i])
-    sumNumber += inclease[i]
+  for (const i of arr) {
+    declease.unshift(i)
+    sumNumber += i
   }
-  const outputText =
-    '合計： ' +
-    sumNumber +
-    '\n平均: ' +
-    sumNumber / arrLength +
-    '\n最大値: ' +
-    inclease[arrLength - 1] +
-    '\n最小値: ' +
-    inclease[0] +
-    '\n小さい順: ' +
-    inclease +
-    '\n大きい順: ' +
-    declease
+  const outputText = `合計: ${sumNumber}
+平均: ${Math.round((sumNumber / arr.length) * 10) / 10}
+最大値: ${inclease[arr.length - 1]}
+最小値: ${inclease[0]}
+小さい順: ${inclease}
+大きい順: ${declease}`
   return outputText
 }
 
-function quickSort(numbers, left, right) {
+const quickSort = (numbers, left, right) => {
   const leftHold = left
   const rightHold = right
   let pivot = numbers[left]
@@ -57,6 +50,6 @@ function quickSort(numbers, left, right) {
   return numbers
 }
 
-const inputArray = [20, 31, 42, 13, 5, 38]
-// const inputArray = [20, 3, 4, 5, 6, 7, 8, 9, 123, 345]
-console.log(arrayCal(inputArray, inputArray.length))
+const example = [20, 31, 42, 13, 5, 38]
+// const example = [20, 3, 4, 5, 6, 7, 8, 9, 123, 345]
+console.log(arrayCal(example))
